@@ -16,6 +16,11 @@ public class JavaApplication1 {
      */
     public static void main(String[] args) {
         System.out.println("Hello");
+        
+    }
+    
+    public static void printMyName(){
+        System.out.println("Bryan");
     }
     
 }
