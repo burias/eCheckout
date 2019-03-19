@@ -21,6 +21,7 @@ public class JavaApplication1 {
     
     public static void printMyName(){
         System.out.println("Bryan");
+        System.out.println("Hello!");
     }
     
 }
