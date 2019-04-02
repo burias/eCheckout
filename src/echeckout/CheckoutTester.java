@@ -62,23 +62,23 @@ public class CheckoutTester {
     //Integration Testing
     public void eCheckoutTester() {
         ECheckout myeCheckoutTester = new ECheckout();
-        if(myeCheckoutTester == null ){
+        if(myeCheckoutTester instanceof ECheckout ){
             //eCheckout Class is not found inside of the program
-            System.out.println("eCheckout Class cannot be found in system.");
+            System.out.println("eCheckout Class was found in the system.");
         } else {
             //eCheckout Class is ready in the program
-            System.out.println("eCheckout Class was found in the system.");
+            System.out.println("eCheckout Class cannot be found in system.");
         }
     }
     
     public void CheckoutClassTester() {
         CheckoutClass myCheckoutClassTester = new CheckoutClass();
-        if(myCheckoutClassTester == null){
+        if(myCheckoutClassTester instanceof CheckoutClass){
             //CheckoutClass is not found inside of the program
-            System.out.println("CheckoutClass cannot be found in the system.");
+            System.out.println("CheckoutClass was found in the system.");
         } else {
             //CheckoutClass is ready in the program
-            System.out.println("CheckoutClass was found in the system.");
+            System.out.println("CheckoutClass cannot be found in the system.");
         }
     }
 }
