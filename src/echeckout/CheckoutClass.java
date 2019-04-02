@@ -4,6 +4,7 @@ package echeckout;
  class CheckoutClass {
     private String userSelection;
     private String itemSelection;
+    private int test;
     
     public void setuserSelection(String userSelection){
         this.userSelection = userSelection;
