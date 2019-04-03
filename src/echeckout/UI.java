@@ -8,11 +8,12 @@ import java.util.Scanner;
  */
 public class UI {
 
+    private static final CheckoutClass checkout = new CheckoutClass();
+    private Scanner input = new Scanner(System.in);
+    private String userInput, itemChoice;
+    private boolean userSelection = true, itemSelection = true;
+
     public UI() {
-        CheckoutClass checkout = new CheckoutClass();
-        Scanner input = new Scanner(System.in);
-        String userInput, itemChoice;
-        boolean userSelection = true, itemSelection = true;
 
         /*/*=========================================================================================================
         Begin user selection.
@@ -28,16 +29,16 @@ public class UI {
                 case "1":
                     //Set user selection to Student and break out of user selection loop
                     checkout.setuserSelection("Student");
-                    System.out.println("User set to Student");
+                    System.out.println("User set to Student\n");
                     userSelection = false;
                     break;
                 case "2":
                     //Set user selection to Teacher and break out of user selection loop
                     checkout.setuserSelection("Teacher");
-                    System.out.println("User set to Teacher");
+                    System.out.println("User set to Teacher\n");
                     break;
                 default:
-                    System.out.println("Sorry, that seems like an invalid input. Please try again.");
+                    System.out.println("Sorry, that seems like an invalid input. Please try again.\n");
             }
         } while (userSelection);
 
@@ -47,40 +48,77 @@ public class UI {
         the type of item to be checked out for the indivudual. If it is a Teacher
         then the loop will continue until they have checked out as many items as they need.
         /*=========================================================================================================*/
-        do {            
+        do {
             switch (checkout.getuserSelection()) {
                 case "Student":
                     studentItemSelect();
+                    itemSelection = false;
                     break;
                 case "Teacher":
                     teacherItemSelect();
+                    itemSelection = false;
                     break;
                 default:
-                    System.out.println("Something went wrong while selecting your items. Please restart the program.");
-                    itemSelection = false;
+                    System.out.println("Something went wrong while selecting your items. Please try again.");
                     break;
             }
         } while (itemSelection);
-        System.out.print("The Item(s) that can be checked out are:\n"
-                + "-Laptop(s)\n"
-                + "-Tablet(s)\n"
-                + "-Calculator(s)\n");
-        System.out.print("What Item(s) will you be checking out: ");
-        String IS = input.next();
-        checkout.setitemSelection(IS);
-
-        System.out.println("\neCheckout Profile");
-        System.out.println("\n----------------");
-        System.out.printf("\n%s %s", "User Selection:", checkout.getuserSelection());
-        System.out.printf("\n%s %s", "Item Selection:", checkout.getitemSelection());
-
+        
     }
 
     public void studentItemSelect() {
-
+        boolean studentItemSelectControl = true;
+        //Student Checkout runs only once
+        do {            
+            System.out.print("The Item(s) that can be checked out are:\n"
+                    + "1. Laptop(s)\n"
+                    + "2. Tablet(s)\n"
+                    + "3. Calculator(s)\n"
+                    + "Please enter the number associated with item that you wish to check out.");
+            userInput = input.nextLine();
+            switch (userInput) {
+                case "1":
+                    checkout.setitemSelection("Laptop");
+                    System.out.println("Selected Laptop");
+                    studentItemSelectControl = false;
+                    break;
+                case "2":
+                    checkout.setitemSelection("Tablet");
+                    System.out.println("Selected Tablet");
+                    studentItemSelectControl = false;
+                    break;
+                case "3":
+                    checkout.setitemSelection("Calculator");
+                    System.out.println("Selected Calculator");
+                    break;
+                default:
+                    System.out.println("Something went wrong setting the item choice. Please try again.");
+            }
+        } while (studentItemSelectControl);
     }
 
     public void teacherItemSelect() {
-
+        boolean teacherItemSelectControl = true;
+        do {            
+            System.out.print("The Item(s) that can be checked out are:\n"
+                    + "1. Laptop(s)\n"
+                    + "2. Tablet(s)\n"
+                    + "3. Calculator(s)\n"
+                    + "Please enter the number associated with item that you wish to check out.");
+            userInput = input.nextLine();
+            switch (userInput) {
+                case "1":
+                    checkout.setitemSelection("Laptop");
+                    break;
+                case "2":
+                    checkout.setitemSelection("Tablet");
+                    break;
+                case "3":
+                    checkout.setitemSelection("Calculator");
+                    break;
+                default:
+                    System.out.println("Something went wrong setting the item choice. Please restart the program.");
+            }
+        } while (teacherItemSelectControl);
     }
 }
