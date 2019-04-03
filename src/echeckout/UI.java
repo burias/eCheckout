@@ -77,7 +77,7 @@ public class UI {
     }
 
     public void studentItemSelect() {
-
+        int test = 0;
     }
 
     public void teacherItemSelect() {
