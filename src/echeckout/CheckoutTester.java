@@ -59,10 +59,11 @@ public class CheckoutTester {
             System.out.println("Calculator selection test PASSED.");
         }
     }
+
     //Integration Testing
     public void eCheckoutTester() {
         ECheckout myeCheckoutTester = new ECheckout();
-        if(myeCheckoutTester == null ){
+        if (myeCheckoutTester == null) {
             //eCheckout Class is not found inside of the program
             System.out.println("eCheckout Class cannot be found in system.");
         } else {
@@ -70,10 +71,10 @@ public class CheckoutTester {
             System.out.println("eCheckout Class was found in the system.");
         }
     }
-    
+
     public void CheckoutClassTester() {
         CheckoutClass myCheckoutClassTester = new CheckoutClass();
-        if(myCheckoutClassTester == null){
+        if (myCheckoutClassTester == null) {
             //CheckoutClass is not found inside of the program
             System.out.println("CheckoutClass cannot be found in the system.");
         } else {
