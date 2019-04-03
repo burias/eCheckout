@@ -1,9 +1,14 @@
-
 package echeckout;
+
+/**
+ *
+ * @author Tanner Graham
+ */
 
  class CheckoutClass {
     private String userSelection;
     private String itemSelection;
+    private int test;
     
     public void setuserSelection(String userSelection){
         this.userSelection = userSelection;
